@@ -1,7 +1,7 @@
-import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
-import './globals.css'
-import { siteConfig } from '@/config/site'
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: siteConfig.seo.title,
@@ -10,28 +10,28 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
-    type: 'website',
+    type: "website",
   },
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
-}
+};
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#1e40af',
+  colorScheme: "light",
+  themeColor: "#1e40af",
   userScalable: true,
   initialScale: 1,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-white scroll-smooth">
+    <html lang="en" className="light bg-white scroll-smooth">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,8 +39,8 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white text-slate-900">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }
